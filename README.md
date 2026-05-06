@@ -1,1 +1,1 @@
-# 2-Lab-Filtering-Ordering-Limiting-and-Grouping-Data-with-SQL---Copy
+# DS_Course1_Week1_Module2_SQLQueries-main
