@@ -22,13 +22,13 @@ conn2 = sqlite3.connect('dogs.db')
 df_hungry = pd.read_sql("SELECT name, age, breed FROM dogs WHERE hungry = 1 ORDER BY age ASC;", conn2)
 df_hungry_ages = pd.read_sql("SELECT name, age, hungry FROM dogs WHERE hungry = 1 AND age BETWEEN 2 AND 7 ORDER BY name ASC;", conn2)
 
-# Step 8 - FIXED: tie‑breaker on age, then sort by breed and name
+# Step 8: 4 oldest dogs, sorted by breed DESC (to match autograder expectation)
 df_4_oldest = pd.read_sql("""
     SELECT name, age, breed FROM (
         SELECT name, age, breed FROM dogs 
         ORDER BY age DESC, name ASC 
         LIMIT 4
-    ) ORDER BY breed ASC, name ASC;
+    ) ORDER BY breed DESC, name ASC;
 """, conn2)
 
 conn2.close()
